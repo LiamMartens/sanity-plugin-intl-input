@@ -10,7 +10,6 @@ import {
   getBaseIdFromId,
   getSanityClient,
   getConfig,
-  buildDocId,
   getTranslationsFor,
 } from '../utils';
 import { ReferenceBehavior } from '../constants';
@@ -40,8 +39,8 @@ export const PublishWithi18nAction = (props: IResolverProps) => {
       const client = getSanityClient();
       const fieldName = config.fieldNames.lang;
       const refsFieldName = config.fieldNames.references;
-      const langs = await getLanguagesFromOption(config.languages, props);
-      const languageId = getLanguageFromId(props.id) || getBaseLanguage(langs, config.base)?.name;
+      const langs = await getLanguagesFromOption(config.languages, props.draft || props.published);
+      const languageId = getLanguageFromId(props.id) || getBaseLanguage(langs, typeof config.base === 'function' ? config.base(props.draft || props.published) : config.base)?.name;
 
       await client.createIfNotExists({ _id: props.id, _type: props.type, _createdAt: moment().utc().toISOString() });
       await client.patch(props.draft?._id || props.id, { set: { [fieldName]: languageId } }).commit();

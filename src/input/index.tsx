@@ -46,6 +46,7 @@ class Input extends React.PureComponent<IProps, IState> {
     const { type: { type, options } } = this.props;
     const config = getConfig(type);
     const { languages } = this.state;
+    // TODO: can we get document here (could possibly fetch it with the client)
     return getBaseLanguage(langs || languages, options.base || config.base);
   }
 
@@ -149,7 +150,8 @@ class Input extends React.PureComponent<IProps, IState> {
     const { type: { type, options } } = this.props;
     const config = getConfig(type);
     this.setState({ fetchingLanguages: true });
-    const languages: IState['languages'] = await getLanguagesFromOption(options.languages || config.languages, this.props);
+    // TODO: can we get document here
+    const languages: IState['languages'] = await getLanguagesFromOption(options.languages || config.languages, this.props.document);
     this.setState({
       languages,
       currentLanguage: this.getBaseLanguage(languages),

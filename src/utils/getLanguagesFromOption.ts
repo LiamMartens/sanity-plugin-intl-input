@@ -4,7 +4,6 @@ import { normalizeLanguageList } from './normalizeLanguageList';
 import { getSanityClient } from './getSanityClient';
 
 export const getLanguagesFromOption = async (langs: TLanguagesOption, doc) => {
-  console.log(doc);
   return normalizeLanguageList(await (async () => {
     if (Array.isArray(langs)) return langs;
     if (typeof langs === 'function') langs(doc);
