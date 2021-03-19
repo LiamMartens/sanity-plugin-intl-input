@@ -1,6 +1,5 @@
 import * as React from 'react';
-import moment, { lang } from 'moment';
-import { SanityDocument, Patch } from '@sanity/client';
+import moment from 'moment';
 import { IResolverProps, Ti18nSchema, IUseDocumentOperationResult } from '../types';
 import { useDocumentOperation, useSyncState } from '@sanity/react-hooks';
 import {
@@ -41,7 +40,7 @@ export const PublishWithi18nAction = (props: IResolverProps) => {
       const client = getSanityClient();
       const fieldName = config.fieldNames.lang;
       const refsFieldName = config.fieldNames.references;
-      const langs = await getLanguagesFromOption(config.languages);
+      const langs = await getLanguagesFromOption(config.languages, props);
       const languageId = getLanguageFromId(props.id) || getBaseLanguage(langs, config.base)?.name;
 
       await client.createIfNotExists({ _id: props.id, _type: props.type, _createdAt: moment().utc().toISOString() });

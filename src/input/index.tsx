@@ -149,7 +149,7 @@ class Input extends React.PureComponent<IProps, IState> {
     const { type: { type, options } } = this.props;
     const config = getConfig(type);
     this.setState({ fetchingLanguages: true });
-    const languages: IState['languages'] = await getLanguagesFromOption(options.languages || config.languages);
+    const languages: IState['languages'] = await getLanguagesFromOption(options.languages || config.languages, this.props);
     this.setState({
       languages,
       currentLanguage: this.getBaseLanguage(languages),

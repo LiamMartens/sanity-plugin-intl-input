@@ -15,8 +15,8 @@ export const TranslationsComponentFactory = (schema: Ti18nSchema) => (props: IDe
     () => {
       (async () => {
         setPending(true);
-        const langs = await getLanguagesFromOption(config.languages);
         const doc = await getSanityClient().fetch('*[_id == $id]', { id: getBaseIdFromId(props.documentId) });
+        const langs = await getLanguagesFromOption(config.languages, doc);
         if (doc && doc.length > 0) setBaseDocument(doc[0]);
         setLanguages(langs);
         setPending(false);
