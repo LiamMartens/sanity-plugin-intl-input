@@ -10,15 +10,15 @@ export const TranslationsComponentFactory = (schema: Ti18nSchema) => (props: IDe
   const [pending, setPending] = React.useState(false);
   const [languages, setLanguages] = React.useState<ILanguageObject[]>([]);
   const [baseDocument, setBaseDocument] = React.useState(null);
-  const [baseLanguage, setBaseLanguage] = React.useState(null);
+  const [baseLanguage, setBaseLanguage] = React.useState<ILanguageObject | null>(null);
 
   React.useEffect(
     () => {
       (async () => {
         setPending(true);
         const doc = await getSanityClient().fetch('*[_id == $id]', { id: getBaseIdFromId(props.documentId) });
-        const langs = await getLanguagesFromOption(config.languages, doc);
-        const baseLang = getBaseLanguage(languages, typeof config.base === 'function' ? config.base(doc) : config.base);
+        const langs = await getLanguagesFromOption(config.languages, props.documentId);
+        const baseLang = getBaseLanguage(languages, typeof config.base === 'function' ? config.base(props.document) : config.base);
         if (doc && doc.length > 0) setBaseDocument(doc[0]);
         setLanguages(langs);
         setBaseLanguage(baseLang);

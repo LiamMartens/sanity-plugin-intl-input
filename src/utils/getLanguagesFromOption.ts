@@ -6,7 +6,7 @@ import { getSanityClient } from './getSanityClient';
 export const getLanguagesFromOption = async (langs: TLanguagesOption, doc) => {
   return normalizeLanguageList(await (async () => {
     if (Array.isArray(langs)) return langs;
-    if (typeof langs === 'function') langs(doc);
+    else if (typeof langs === 'function') return langs(doc);
     const r = await getSanityClient().fetch(langs.query);
     const value = langs.value;
 
