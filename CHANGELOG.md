@@ -1,5 +1,8 @@
 # CHANGELOG
 
+## v5.6.3
+* Fixed a bug in the translation maintenance refs fix where it would add all documents in refs
+
 ## v5.6.2
 * Fixed an issue where the data is only copied from a published document and not from a draft document when creating a new translation
 * Fixed a bug with "Delete incl translation" where it could not be removed due to references
