@@ -10,4 +10,5 @@ export type Ti18nConfig = {
   referenceBehavior?: ReferenceBehavior;
   fieldNames?: TFieldNamesConfig;
   messages?: TMessagesConfig;
+  showCountryFlags?: boolean;
 }

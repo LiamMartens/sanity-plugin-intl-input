@@ -31,3 +31,4 @@ Below are all available configuration options.
       * `orphanDocuments`: Defaults to `orphaned translation document(s)`
       * `referenceBehaviorMismatch`: Defaults to `document(s) with mismatched reference behaviors`
       * `fix`: Defaults to `Fix`
+* `showCountryFlags`: Show or hide the country flags. Defaults to `true`.

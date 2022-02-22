@@ -95,33 +95,35 @@ export const TranslationLink: React.FunctionComponent<IProps> = ({
           style={{ width: `100%` }}
         >
           <Flex align="center" gap={4}>
-            <Box>
-              {codeCountry && codeLanguage && (
-                <Flex
-                  direction="column"
-                  paddingBottom={3}
-                  paddingRight={3}
-                  style={{ position: "relative" }}
-                >
-                  <Heading size={4}>
-                    <FlagComponent code={codeCountry} />
-                  </Heading>
-                  <Heading
-                    size={4}
-                    style={{ position: "absolute", bottom: 0, right: 0 }}
+            {config.showCountryFlags && (
+              <Box>
+                {codeCountry && codeLanguage && (
+                  <Flex
+                    direction="column"
+                    paddingBottom={3}
+                    paddingRight={3}
+                    style={{ position: "relative" }}
                   >
-                    <FlagComponent code={codeLanguage} />
-                  </Heading>
-                </Flex>
-              )}
-              {!codeCountry && codeLanguage && (
-                <Box paddingX={1}>
-                  <Heading size={5}>
-                    <FlagComponent code={codeLanguage} />
-                  </Heading>
-                </Box>
-              )}
-            </Box>
+                    <Heading size={4}>
+                      <FlagComponent code={codeCountry} />
+                    </Heading>
+                    <Heading
+                      size={4}
+                      style={{ position: "absolute", bottom: 0, right: 0 }}
+                    >
+                      <FlagComponent code={codeLanguage} />
+                    </Heading>
+                  </Flex>
+                )}
+                {!codeCountry && codeLanguage && (
+                  <Box paddingX={1}>
+                    <Heading size={5}>
+                      <FlagComponent code={codeLanguage} />
+                    </Heading>
+                  </Box>
+                )}
+              </Box>
+            )}
             <Box flex={1}>
               <Stack space={2}>
                 <Text>{lang.title}</Text>

@@ -26,6 +26,7 @@ export function getConfig(type?: string | Ti18nSchema): Required<{
       references: schema?.fieldNames?.references || cfg?.fieldNames?.references || '__i18n_refs',
     },
     languages: schema?.languages || cfg?.languages || [],
+    showCountryFlags: cfg.showCountryFlags ?? true,
     messages: {
       publishing: schema?.messages?.publishing || cfg?.messages?.publishing || 'Publishing...',
       publish: schema?.messages?.publish || cfg?.messages?.publish || 'Publish',
