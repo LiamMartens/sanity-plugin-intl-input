@@ -1,5 +1,8 @@
 # CHANGELOG
 
+## v5.6.4
+* [#124](https://github.com/LiamMartens/sanity-plugin-intl-input/issues/124) Updates an internal import to support the minor bump from `@sanity/desk-tool@2.28.0`
+
 ## v5.6.3
 * Fixed a bug in the translation maintenance refs fix where it would add all documents in refs
 
