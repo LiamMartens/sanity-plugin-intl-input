@@ -1,5 +1,8 @@
 # CHANGELOG
 
+## v5.6.5
+* Updates the `ConfirmDeleteDialog` import to be named instead of default
+
 ## v5.6.4
 * [#124](https://github.com/LiamMartens/sanity-plugin-intl-input/issues/124) Updates an internal import to support the minor bump from `@sanity/desk-tool@2.28.0`
 
