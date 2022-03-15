@@ -40,5 +40,5 @@ With the intl plugin you will get a cleaner UI for creating translatable documen
 8. [Usage with custom publish action](docs/usage-with-custom-publish.md)
 9. [GROQ Cheatsheet](/docs/groq-cheatsheet.md)
 ## Other resources
-* [Great guied by nilsnh](https://nilsnh.no/2021/08/22/guide-localizing-sanity-cms-with-the-intl-input-plugin/)
+* [Great guide by nilsnh](https://nilsnh.no/2021/08/22/guide-localizing-sanity-cms-with-the-intl-input-plugin/)
 * [Sanity Starter](https://www.sanity.io/create?template=sanity-io%2Fsanity-template-translation-examples)
