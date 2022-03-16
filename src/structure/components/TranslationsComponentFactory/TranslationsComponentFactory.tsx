@@ -32,18 +32,23 @@ export const TranslationsComponentFactory =
 
     React.useEffect(() => {
       (async () => {
-        const shouldReload = (languages.length === 0 || (shouldReloadFn && shouldReloadFn(draft ?? published)));
+        const shouldReload =
+          languages.length === 0 ||
+          (shouldReloadFn && shouldReloadFn(draft ?? published));
         if (shouldReload) {
           setPending(true);
           const langs = await getLanguagesFromOption(
             config.languages,
             draft ?? published
           );
-          const baseDocId = getBaseIdFromId(props.documentId)
-          const doc = await getSanityClient().fetch(`coalesce(*[_id == $draftId][0], *[_id == $id][0])`, {
-            id: baseDocId,
-            draftId: `drafts.${baseDocId}`
-          });
+          const baseDocId = getBaseIdFromId(props.documentId);
+          const doc = await getSanityClient().fetch(
+            `coalesce(*[_id == $draftId][0], *[_id == $id][0])`,
+            {
+              id: baseDocId,
+              draftId: `drafts.${baseDocId}`,
+            }
+          );
           if (doc) setBaseDocument(doc);
           setLanguages(langs);
           setPending(false);
@@ -68,8 +73,7 @@ export const TranslationsComponentFactory =
           isBase: lang.name === config.base,
           isCurrentLanguage: lang.name === currentLanguage,
         }))
-        .sort(baseToTop)
-        .reverse();
+        .sort(baseToTop);
     }, [languages, config]);
 
     if (pending) {
