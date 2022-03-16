@@ -65,7 +65,7 @@ export const TranslationsComponentFactory =
       return languages
         .map((lang) => ({
           ...lang,
-          isBase: lang.name === config.base,
+          isBase: typeof baseLanguage?.name === "string" && lang.name === baseLanguage?.name,
           isCurrentLanguage: lang.name === currentLanguage,
         }))
         .sort(baseToTop)
