@@ -106,8 +106,7 @@ export const Input = React.forwardRef<any, Props>((props, ref) => {
           isBase:
             typeof baseLang?.name === "string" && lang.name === baseLang?.name,
         }))
-        .sort(baseToTop)
-        .reverse();
+        .sort(baseToTop);
 
       setLanguages(updatedSorted);
       setFetchingLanguages(false);
