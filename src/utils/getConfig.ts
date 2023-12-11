@@ -19,7 +19,7 @@ export function getConfig(type?: string | Ti18nSchema): Required<{
   return {
     base: schema?.base || cfg?.base || '',
     idStructure: cfg.idStructure || IdStructure.SUBPATH,
-    referenceBehavior: cfg.referenceBehavior || ReferenceBehavior.HARD,
+    referenceBehavior: cfg.referenceBehavior || ReferenceBehavior.WEAK,
     withTranslationsMaintenance: cfg?.withTranslationsMaintenance === false ? false : true,
     fieldNames: {
       lang: schema?.fieldNames?.lang || cfg?.fieldNames?.lang || '__i18n_lang',
